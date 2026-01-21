@@ -232,4 +232,6 @@ def analyze():
     return jsonify({'score': score, 'steps': steps, 'msg': msg, 'color': color})
 
 if __name__ == '__main__':
-    app.run(debug=True)
+    # Isso permite que o Render defina a porta automaticamente
+    port = int(os.environ.get("PORT", 5000))
+    app.run(host='0.0.0.0', port=port)
